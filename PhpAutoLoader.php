@@ -293,3 +293,11 @@ if (function_exists('spl_autoload_register')) {
     }
 }
 
+$tmp_config = PhpAutoLoaderConfig::getConfig();
+foreach($tmp_config['globals'] as $file) {
+    if ($file[0] != '/') {
+        $file = dirname(__FILE__) . '/' . $file;
+    }
+    include($file);
+}
+
