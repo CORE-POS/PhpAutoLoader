@@ -292,6 +292,9 @@ if (function_exists('spl_autoload_register')) {
         PhpAutoLoader::loadClass($name);
     }
 }
+if (file_exists(dirname(__FILE__) . '/../../vendor/autoload.php')) {
+    include(dirname(__FILE__) . '/../../vendor/autoload.php');
+}
 
 $tmp_config = PhpAutoLoaderConfig::getConfig();
 foreach($tmp_config['globals'] as $file) {
